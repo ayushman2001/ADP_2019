@@ -1,0 +1,18 @@
+#table {
+    background-color: rgb(215, 220, 56);
+    display: inline-block;
+}
+
+#table td {
+    border: solid 1px;
+    color: rgb(153,98,91);
+}
+
+#table table {
+    border: solid 1px;
+    color: rgb(153,98,91);
+}
+
+#table th {
+    border: solid 1px;
+}
