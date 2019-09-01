@@ -1,0 +1,65 @@
+[
+	{
+		"name": "Harry Potter",
+		"wand": [
+			{
+				"core": "phoenix feather",
+				"length": "11 inches",
+				"wood": "holly"
+			}
+		]
+	},
+	{
+		"name": "Hermione Granger",
+		"wand": [
+			{
+				"core": "dragon heartstring",
+				"length": "10 and 3/4 inches",
+				"wood": "vine"
+			}
+		]
+	},
+	{
+		"name": "Ronald Weasley",
+		"wand": [
+			{
+				"core": "unicorn tail hair",
+				"length": "12 inches",
+				"wood": "Ash"
+			}
+		]
+	},
+	{
+		"name": "Draco Malfoy",
+		"wand": [
+			{
+				"core": "unicorn hair",
+				"length": "10 inches",
+				"wood": "Hawthorn"
+			}
+		]
+	},
+	{
+		"name": "Neville Longbottom",
+		"wand": [
+			{
+				"core": "unicorn hair",
+				"length": "13 inches",
+				"wood": "Cherry"
+			}
+		]
+	},
+	{
+		"name": "Bellatrix Lestrange",
+		"wand": [
+			{
+				"core": "dragon heartstring",
+				"length": "12 and 3/4 inches",
+				"wood": "Walnut"
+			}
+		]
+	}
+	
+	
+	
+]
