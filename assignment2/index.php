@@ -69,5 +69,33 @@ This is a solution to the 2nd assignment question</textarea>
         </div>
         <button type="submit">Submit</button>
     </form>
+    <br>
+<form action="index.php" method="GET">
+    <label>Print JSON file content: </label>
+    <input type="submit" name="print_Json" value="print_Json" />
+</form>
+<br>
+<?php
+    if($_SERVER['REQUEST_METHOD'] == "GET" and isset($_GET['print_Json']))
+    {
+        func();
+    }
+    function func()
+    {
+        $data = file_get_contents("wizard.json");
+    // var_dump($json_file);
+
+    $wizards = json_decode($data, true);
+    // var_dump($wizards);
+    // echo "<br/><br/>";
+    // echo $wizards[0]["name"]."<br/><br/>";
+
+    foreach ($wizards as $wizard)
+    {
+        $txt = sprintf("%s's wand is %s, %s, with a %s core.", $wizard["name"], $wizard["wand"][0]["wood"], $wizard["wand"][0]["length"], $wizard["wand"][0]["core"]);
+        echo $txt."<br/>";
+    }   
+    }
+?>
 </body>
 </html>
