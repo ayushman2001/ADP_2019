@@ -1,0 +1,85 @@
+body {
+    margin: 5%;
+    font-size: 22px;
+    background: black;
+    color: rgb(46, 255, 46);
+    font-family: sans-serif;
+}
+
+.link{
+    color: rgb(46, 255, 46);
+}
+
+.link:hover {
+    color: white;
+}
+
+
+h1 {
+    font-family: sans-serif;
+    position: absolute;
+    left: 45%;
+    background: black;
+    box-shadow: 0 0 50px black;
+    top: 21%;
+}
+
+form {
+    width: 70%;
+    border: 0;
+    margin: 15% 15%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(38, 255, 0);
+    background: rgb(0, 22, 0);
+}
+
+.input-form label {
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+}
+
+.input-form input {
+    display: inline-block;
+    background:  rgb(6, 104, 2);
+    color:  rgb(46, 255, 46);
+    text-shadow: 0 0 5px black;
+    font-size: 22px;
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid  rgb(0, 221, 0);
+    box-shadow: 0 0 1px rgb(107, 149, 241);
+    padding: 5px;
+}
+
+.input-form {
+    color: rgb(0, 221, 0);
+    border: 2px solid rgb(0, 221, 0);
+    margin: 30px;
+    box-shadow:0 0 5px rgb(180, 223, 238);
+    border-radius: 10px;
+    padding: 10px; 
+}
+
+form button {
+    color: rgb(0, 221, 0);
+    text-shadow: 0 0 10px black;
+    width: 50%;
+    position: relative;
+    display: inline-block;
+    box-align: center;
+    margin: 30px 25%;
+    border-radius: 10px;
+    border: 1px solid rgb(0, 197, 0);
+    box-shadow: 0 0 20px rgb(0, 197, 0);
+    background: rgb(6, 104, 2);
+    height: 30px;
+    font-size: 22px;
+}
+
+textarea {
+    box-shadow: 0 0 5px rgb(19, 207, 1);
+    border: 0;
+}
