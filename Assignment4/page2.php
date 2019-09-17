@@ -12,7 +12,7 @@
   <input type="email" name="email" id="email">
   <br><br>
   Contact:<br>
-  <input type="numbers" name="cont" id="cont">
+  <input type="numbers" name="cont" id="cont", type="numbers">
   <br>
   <br>
   Address :<br>

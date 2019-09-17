@@ -8,35 +8,36 @@ $hostname="localhost";
 $username="root";
 $password="";
 
-$connected=mysqli_connect($hostname,$username,$password);
-
-$status=false;
-if($connected){
-	$status=true;
-}
-
-if($status)
-{
-	$data="SELECT * FROM $dbname.$tbname";
-	echo "ID ";
-	echo "NAME ";
-	echo "EMAIL ";
-	echo "CONTACT ";
-	echo "ADDRESS";
-	while($output=mysqli_fetch_assoc(mysqli_query($connected,$data)))
-	{
-	echo $output["ID"];
-	echo " ";
-	echo $output["NAME"];
-	echo " ";
-	echo $output["EMAIL"];
-	echo " ";
-	echo $output["CONTACT"];
-	echo " ";
-	echo $output["ADDRESS"];
-	echo "<br>";
-	}
-
-}
+$mysqli = new mysqli($hostname, $username, $password, $dbname); 
+$query = "SELECT * FROM $tbname";
+ 
+ 
+echo '<table border="0" cellspacing="2" cellpadding="2"> 
+      <tr> 
+          <td> <font face="Arial">ID</font> </td> 
+          <td> <font face="Arial">NAME</font> </td> 
+          <td> <font face="Arial">EMAIL</font> </td> 
+          <td> <font face="Arial">CONTACT</font> </td> 
+          <td> <font face="Arial">ADDRESS</font> </td> 
+      </tr>';
+ 
+if ($result = $mysqli->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $field1name = $row["ID"];
+        $field2name = $row["NAME"];
+        $field3name = $row["EMAIL"];
+        $field4name = $row["CONTACT"];
+        $field5name = $row["ADDRESS"]; 
+ 
+        echo '<tr> 
+                  <td>'.$field1name.'</td> 
+                  <td>'.$field2name.'</td> 
+                  <td>'.$field3name.'</td> 
+                  <td>'.$field4name.'</td> 
+                  <td>'.$field5name.'</td> 
+              </tr>';
+    }
+    $result->free();
+} 
 
 ?>
