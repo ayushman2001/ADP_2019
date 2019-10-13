@@ -1,0 +1,17 @@
+Q2.
+create table customer_audit(
+    id int(11) not null primary key auto_increment,
+    customerID int(11) not null,
+    user_name varchar(50) not null,
+    contactName varchar(100) not null,
+    changedat datetime,
+    action varchar(50) 
+    );
+
+create
+    trigger cust_after_del after delete
+    on customers
+    for each row
+    begin
+    insert into customer_audit (customerID, user_name, contactName, changedat, action) values(old.CustomerID, current_user, old.ContactName, current_timestamp, "delete");
+    end $$
