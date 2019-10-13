@@ -1,0 +1,81 @@
+Q1. (a)
+delimiter $$
+create procedure display()
+    -> begin
+    -> select Name, HeadOfState, Continent from country where Continent = 'Asia' or Continent = 'Europe';
+    -> end$$
+delimiter ;
+call display();
+
+or
+
+create procedure display()
+    -> begin
+    -> select Name, HeadOfState, Continent from country where Continent = "Europe" union select 	Name, HeadOfState, Continent from country where Continent = "Africa";
+    -> end$$
+
+
+(b)
+delimiter $$
+create procedure max_pop(out pop int(11))
+    -> begin
+    -> select max(Population) from country where Continent = 'Europe' or Continent = 'Africa';
+    -> end$$
+delimiter ;
+call max_pop(@p);
+select Name from country where Population = (select @p);
+
+Q2.
+delimiter |
+ create function customerLevel(creditLimit  decimal(10,2))
+    -> returns varchar(10)
+    -> deterministic
+    -> begin
+    -> declare c_l varchar(10);
+    -> if creditLimit > 50000 then
+    -> set c_l = 'PLATINUM';
+    -> elseif (creditLimit <= 50000 and creditLimit >= 10000) then
+    -> set c_l = 'GOLD';
+    -> elseif (creditLimit < 10000) then
+    -> set c_l = 'SILVER';
+    -> end if;
+    -> return (c_l);
+    -> end|
+ select customerName, customerLevel(creditLimit) from customers|
+
+Q3.
+create procedure Value()
+    begin
+    
+    declare c_n int;
+    declare c_l int;
+    declare t_a int;
+    
+    declare v varchar(20);
+    
+    declare finished int default 0;
+    
+    declare row_cursor cursor for
+    select customerNumber, creditLimit, sum(amount) from customers natural join payments group by customerNumber;
+    
+    declare continue handler
+    for not found set finished = 1;
+     
+    open row_cursor;
+    
+    get_row: loop
+    fetch row_cursor into c_n, c_l, t_a;
+    if finished = 1
+    then leave get_row;
+    end if;
+    if (t_a > c_l) then 
+    insert into temp (customerNumber, Value)
+    values (c_n, "limit exceeded");
+    elseif (t_a < c_l) then 
+    insert into temp (customerNumber, Value)
+    values (c_n, "below limit");
+    end if;
+    
+    end loop get_row;
+    close row_cursor;
+   end$$
