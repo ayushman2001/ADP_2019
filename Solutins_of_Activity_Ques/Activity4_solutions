@@ -1,0 +1,42 @@
+Q1. 
+a) select count(distinct name) from country;
+   select Continent, sum(SurfaceArea) from country group by Continent;
+
+b) select Continent, count(name) from country group by Continent order by count(name) desc;
+
+c) select Continent, sum(Population)/sum(SurfaceArea) as "Population Density" from country group by Continent;
+=>
+ +---------------+--------------------+
+| Continent     | Population Density |
++---------------+--------------------+
+| Asia          |         116.214207 |
+| Europe        |          31.674709 |
+| North America |          19.946462 |
+| Africa        |          25.932735 |
+| Oceania       |           3.549756 |
+| Antarctica    |           0.000000 |
+| South America |          19.355244 |
++---------------+--------------------+
+
+Q2.
+a) select customerName, orderNumber from customers inner join orders on customers.customerNumber = orders.customerNumber;
+or
+select customerName, orderNumber from customers natural join orders;
+
+b) select customerNumber, count(orderNumber) from orders group by customerNumber;
+
+c) select customerName from customers left join orders on customers.customerNumber = orders.customerNumber where orderNumber is null;
+
+d) select customerName, sum(amount)  from customers natural join payments group by customerNumber;
+or // to show customers with no payments too...
+select customerName, sum(amount)  from customers left join payments on customers.customerNumber = payments.customerNumber  group by customers.customerNumber;
+
+Q3.
+select Name,HeadOfState from country where Continent = "Asia" union select Name, HeadOfState from country where Continent = "Europe" order by HeadOfState;
+
+
+
+
+
+
+
