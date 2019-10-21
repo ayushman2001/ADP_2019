@@ -1,0 +1,39 @@
+Q1.
+a) use CS207
+
+b) db.Students.insert(
+... {
+...  "ROLL_NO" : "B18012",
+...  "Name" : "Bhumanyu Goyal",
+...  "Age" : 18,
+...  "Semester" : 3,
+...  "GPA" : [{"CGPA" : 9.34, "SGPA" : 9.4}],
+...  "Hometown" : "Karauli"
+...  }
+...  );
+
+   db.Students.insertMany([
+... {"ROLL_NO" : "B18012", "Name" : "Bhumanyu Goyal", "Age" : 18, "Semester" : 3, "GPA" : {"CGPA" : 9.34, "SGPA" : 9.4, "UOM" : "GPA"}, "Hometown" : "Karauli"},
+... {"ROLL_NO" : "B18164", "Name" : "Ayushmaan Dixit", "Age" : 18, "Semester" : 3, "GPA" : {"CGPA" : 9.34, "SGPA" : 9.4, "UOM" : "GPA"}, "Hometown" : "Jaipur"},
+... {"ROLL_NO" : "B18054", "Name" : "Deppu Deepu", "Age" : 18, "Semester" : 3, "GPA" : {"CGPA" : 9.34, "SGPA" : 9.4, "UOM" : "GPA"}, "Hometown" : "KHAAARAAAAD"}
+... ]);
+
+c) db.Students.find().forEach(printjson);
+   db.Students.find()
+
+d) db.Students.update(
+... {
+... "GPA.CGPA" > 9
+... },
+... {
+... $set :
+... {
+... "Hometown" : "Mandi",
+... "GPA.UOM" : "GP"
+... }
+... }
+... );
+
+e) db.Students.remove({"Semester" : 3}, true)
+   db.Students.remove({"Semester" : 3}, {justOne : true})
+
