@@ -11,7 +11,7 @@ or
 
 create procedure display()
     -> begin
-    -> select Name, HeadOfState, Continent from country where Continent = "Europe" union select 	Name, HeadOfState, Continent from country where Continent = "Africa";
+    -> select Name, HeadOfState, Continent from country where Continent = "Europe" union select Name, HeadOfState, Continent from country where Continent = "Africa";
     -> end$$
 
 
