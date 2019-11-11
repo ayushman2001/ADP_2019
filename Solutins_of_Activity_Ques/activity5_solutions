@@ -69,13 +69,12 @@ create procedure Value()
     then leave get_row;
     end if;
     if (t_a > c_l) then 
-    insert into temp (customerNumber, Value)
-    values (c_n, "limit exceeded");
+    insert into temp (customerNumber, Value) values (c_n, "limit exceeded");
     elseif (t_a < c_l) then 
-    insert into temp (customerNumber, Value)
-    values (c_n, "below limit");
+    insert into temp (customerNumber, Value) values (c_n, "below limit");
     end if;
     
     end loop get_row;
     close row_cursor;
+    
    end$$
