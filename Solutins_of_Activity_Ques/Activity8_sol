@@ -23,7 +23,7 @@ c) db.Students.find().forEach(printjson);
 
 d) db.Students.update(
 ... {
-... "GPA.CGPA" > 9
+... "GPA.CGPA" : {$gt : 9}
 ... },
 ... {
 ... $set :
