@@ -19,7 +19,7 @@ create procedure display()
 delimiter $$
 create procedure max_pop(out pop int(11))
     -> begin
-    -> select max(Population) from country where Continent = 'Europe' or Continent = 'Africa';
+    -> select max(Population) into pop from country where Continent = 'Europe' or Continent = 'Africa';
     -> end$$
 delimiter ;
 call max_pop(@p);
