@@ -1,1 +1,18 @@
+#heading {
+    text-align: center;
+}
 
+audio {
+    margin: 10vh 0 10vh 0;
+}
+
+body {
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
